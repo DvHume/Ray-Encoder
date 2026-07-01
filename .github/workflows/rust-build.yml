@@ -1,0 +1,56 @@
+name: Build Rust Native Libraries
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            out_dir: linux-x86-64
+            lib_pattern: "lib*.so"
+
+          - os: macos-13
+            out_dir: darwin-x86-64
+            lib_pattern: "lib*.dylib"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Cargo
+        uses: Swatinem/rust-cache@v2
+
+      - name: Build Rust library
+        run: |
+          cd rust-core
+          cargo build --release --lib
+
+      - name: Prepare output directory
+        run: |
+          mkdir -p resources/${{ matrix.out_dir }}
+
+      - name: Move library to structured folder
+        run: |
+          FILE=$(find rust-core/target/release -maxdepth 1 -type f -name "${{ matrix.lib_pattern }}" | head -n 1)
+          cp "$FILE" resources/${{ matrix.out_dir }}/
+
+      - name: Verify output
+        run: |
+          ls -R resources
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-libs-${{ matrix.out_dir }}
+          path: resources/${{ matrix.out_dir }}

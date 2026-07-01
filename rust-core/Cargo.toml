@@ -1,0 +1,13 @@
+[package]
+name = "quark_password_encryptor"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+aes-gcm = "0.10"
+argon2 = { version = "0.5", features = ["password-hash"] }
+rand = "0.8"
+base64 = "0.21"
