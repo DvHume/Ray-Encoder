@@ -22,7 +22,7 @@
 Внутри архива уже находятся скомпилированные библиотеки под вашу ОС
 
 1. Убедитесь что у вас установлена **Java 21** (или выше).
-2. Запустите приложение из zip-архива:\
+2. Разархивируйте и запустите:
 ```txt
 run.bat
 run.sh
@@ -55,11 +55,11 @@ cargo build --release
 Перед сборкой Java поместите полученный файл в папку ресурсов Java (`src/main/resources/`)
 в соответствующую директорию:
 
-- Windows(64-bit): <span style="color: gray; pointer-events: none; cursor: default">win32-x86-64/quark_password_encryptor.dll</span>
+- Windows(64-bit): ``win32-x86-64/quark_password_encryptor.dll``
 
-- Linux(64-bit): <span style="color: gray; pointer-events: none; cursor: default">linux-x86-64/quark_password_encryptor.so</span>
+- Linux(64-bit): ``linux-x86-64/quark_password_encryptor.so``
 
-- macOS(Intel): <span style="color: gray; pointer-events: none; cursor: default">darwin-x86-64/quark_password_encryptor.dylib</span>
+- macOS(Intel): ``darwin-x86-64/quark_password_encryptor.dylib``
 
 ## Сборка и запуск
 
@@ -68,7 +68,7 @@ cargo build --release
 ```bash
 cd java-core
 mvn clean package
-java -jar target/RayEncryptor-*.jar
+java -jar target/RayEncoder-*.jar
 ```
 
 ### Полезные ссылки:
