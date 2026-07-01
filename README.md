@@ -39,7 +39,7 @@ java -jar rayencoder.jar
 скомпилированный под вашу ОС. Вы можете получить его двумя способами: 
 
 1. Способ(без установки Rust):
-Просто перейдите во вкладку **Actions** в этом репозитории,
+Просто перейдите во вкладку [**Actions**](https://github.com/DvHume/Ray-Encoder/actions) в этом репозитории,
 выберите последний успешный запуск **Workflow** и скачайте архив(Artifacts) для вашей ОС.
 2. Локальная сборка (Требуется установленный Rust):
 Перейдите в папку ядра и соберите его вручную:
@@ -72,6 +72,6 @@ java -jar target/RayEncryptor-*.jar
 
 ### Полезные ссылки:
 
-[Java 21](https://adoptium.net/temurin/release?version=21&os=any&arch=any/)\
+[Java 21](https://adoptium.net/temurin/releases?version=21&os=any&arch=any)\
 [Rust](https://rust-lang.org/learn/get-started/)\
-[What is AES-256?](https://en.wikipedia.org/wiki/Advanced_Encryption_Standart)
+[What is AES-256?](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)

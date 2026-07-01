@@ -8,7 +8,7 @@
     <artifactId>rayencoder</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
-        <finalName>RayEncoder-${project.version}-release</finalName>
+        <finalName>RayEncoder-${project.version}</finalName>
     </build>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
