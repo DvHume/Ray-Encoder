@@ -4,7 +4,7 @@
  
 # 🔐 QUARK Ray Encoder
 
-![RayEncoder](https://img.shields.io/badge/RayEncoder-Project-orange)]
+![RayEncoder](https://img.shields.io/badge/RayEncoder-Project-orange)
 [![MIT License](https://img.shields.io/badge/license-MIT-green)](LICENSE.txt)
 [![Java 21](https://img.shields.io/badge/Java-21-orange)](https://adoptium.net/temurin/releases?version=21&os=any&arch=any)
 
