@@ -27,7 +27,7 @@ public class Main {
     public static String RESET = "\u001B[0m";
     public static String CYAN = "\u001B[36m";
     public static String GREEN = "\u001B[32m";
-    public static  String RED = "\u001B[31m";
+    public static String RED = "\u001B[31m";
     public static String PURPLE = "\u001B[35m";
     public static String WHITE_BOLD = "\u001B[1;37m";
 
@@ -79,7 +79,7 @@ public class Main {
     }
 
     private static void handleEncryption(Scanner scanner) {
-        System.out.println(WHITE_BOLD + "Enter..." + RESET);
+        System.out.print(WHITE_BOLD + "Enter... " + RESET);
         String secret = scanner.nextLine();
         System.out.println(WHITE_BOLD + "Create a Master Password" + RESET);
         String encPass = scanner.nextLine();
