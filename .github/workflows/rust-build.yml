@@ -1,28 +1,35 @@
+# Build native lib
 name: Build Rust Native Libraries
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches:
+      - main
+      - master
+
   pull_request:
-    branches: [ "main", "master" ]
+    branches:
+      - main
+      - master
 
 jobs:
   build:
     runs-on: ${{ matrix.os }}
 
     strategy:
+      fail-fast: false
       matrix:
         include:
           - os: ubuntu-latest
             out_dir: linux-x86-64
             lib_pattern: "lib*.so"
 
-          - os: macos-13
-            out_dir: darwin-x86-64
-            lib_pattern: "lib*.dylib"
+          - os: windows-latest
+            out_dir: windows-x86-64
+            lib_pattern: "*.dll"
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Install Rust
@@ -32,20 +39,28 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - name: Build Rust library
-        run: |
-          cd rust-core
-          cargo build --release --lib
+        working-directory: rust-core
+        run: cargo build --release --lib
 
       - name: Prepare output directory
+        shell: bash
         run: |
           mkdir -p resources/${{ matrix.out_dir }}
 
-      - name: Move library to structured folder
+      - name: Copy native library
+        shell: bash
         run: |
           FILE=$(find rust-core/target/release -maxdepth 1 -type f -name "${{ matrix.lib_pattern }}" | head -n 1)
+
+          if [ -z "$FILE" ]; then
+            echo "Native library not found!"
+            exit 1
+          fi
+
           cp "$FILE" resources/${{ matrix.out_dir }}/
 
-      - name: Verify output
+      - name: Show output
+        shell: bash
         run: |
           ls -R resources
 

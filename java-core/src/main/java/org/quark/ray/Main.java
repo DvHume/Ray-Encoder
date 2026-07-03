@@ -21,28 +21,38 @@ public class Main {
 
         Pointer rust_encrypt(String secret, String password);
         Pointer rust_decrypt(String base64Str, String password);
-        void free_string_pls(Pointer ptr);
+        void rust_string_free(Pointer ptr);
     }
 
-    public static final String RESET = "\u001B[0m";
-    public static final String CYAN = "\u001B[36m";
-    public static final String GREEN = "\u001B[32m";
-    public static final String RED = "\u001B[31m";
-    public static final String PURPLE = "\u001B[35m";
-    public static final String WHITE_BOLD = "\u001B[1;37m";
+    public static String RESET = "\u001B[0m";
+    public static String CYAN = "\u001B[36m";
+    public static String GREEN = "\u001B[32m";
+    public static  String RED = "\u001B[31m";
+    public static String PURPLE = "\u001B[35m";
+    public static String WHITE_BOLD = "\u001B[1;37m";
 
     public static void main(String[] args) {
         if (System.getProperty("os.name").toLowerCase().contains("win")) {
+            boolean ansiSupported = false;
             try {
-                Kernel32.INSTANCE.SetConsoleMode(
+                ansiSupported = Kernel32.INSTANCE.SetConsoleMode(
                         Kernel32.INSTANCE.GetStdHandle(-11),
                         0x0001 | 0x0004
                 );
             } catch (Throwable ignored) {
             }
+
+            if (!ansiSupported) {
+                RESET = "";
+                CYAN = "";
+                GREEN = "";
+                RED = "";
+                PURPLE = "";
+                WHITE_BOLD = "";
+            }
         }
 
-        try (Scanner sc = new Scanner(System.in);) {
+        try (Scanner sc = new Scanner(System.in)) {
 
             printHeader();
 
@@ -51,7 +61,7 @@ public class Main {
                 System.out.println(WHITE_BOLD + " [1]" + RESET + " Encrypt data");
                 System.out.println(WHITE_BOLD + " [2]" + RESET + " Decode Base64 into a string");
                 System.out.println(WHITE_BOLD + " [3]" + RESET + " Exit");
-                System.out.println(CYAN + "\ncrypto-vault@user:~# " + RESET);
+                System.out.print(CYAN + "\ncrypto-vault@user:~# " + RESET);
 
                 String choice = sc.nextLine().trim();
 
@@ -79,7 +89,7 @@ public class Main {
         Pointer encPtr = Ray.INSTANCE.rust_encrypt(secret, encPass);
         if (encPtr != null) {
             String resultBase64 = encPtr.getString(0);
-            Ray.INSTANCE.free_string_pls(encPtr);
+            Ray.INSTANCE.rust_string_free(encPtr);
 
             System.out.println(GREEN + "\n[✔] SUCCESSFULLY!" + RESET);
             System.out.println("LINE TO SAVE:");
@@ -100,7 +110,7 @@ public class Main {
         Pointer decPtr = Ray.INSTANCE.rust_decrypt(base64Str, decPass);
         if (decPtr != null) {
             String decryptedText = decPtr.getString(0);
-            Ray.INSTANCE.free_string_pls(decPtr);
+            Ray.INSTANCE.rust_string_free(decPtr);
 
             System.out.println(GREEN + "\n[✔] SUCCESSFULLY!" + RESET);
             System.out.println("Your secret: " + WHITE_BOLD + decryptedText + RESET + "\n");

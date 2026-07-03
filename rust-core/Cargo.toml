@@ -2,6 +2,7 @@
 name = "quark_password_encryptor"
 version = "0.1.0"
 edition = "2024"
+author = "DvHume"
 
 [lib]
 crate-type = ["cdylib"]

@@ -4,6 +4,11 @@
  
 # 🔐 QUARK Ray Encoder
 
+[![RayEncoder](![Static Badge](https://img.shields.io/badge/RayEncoder-Project-orange)
+)]
+[![MIT License](![Static Badge](https://img.shields.io/badge/license-MIT-green)](LICENSE.txt)
+[![Java 21](![Static Badge](https://img.shields.io/badge/Java-21-orange)](https://adoptium.net/temurin/releases?version=21&os=any&arch=any)
+
 Менеджер зашифрованных данных с консольным интерфейсом(пока что).
 Проект построен на базе гибридного стека: криптографическое ядро написано на **Rust.**
 А пользовательский интерфейс на **Java**
@@ -23,8 +28,12 @@
 
 1. Убедитесь что у вас установлена **Java 21** (или выше).
 2. Разархивируйте и запустите:
-```txt
+```bash
+# Windows
 run.bat
+
+# Linux / macOS
+chmod +x run.sh
 run.sh
 ```
 
@@ -50,6 +59,11 @@ cd rust-core
 cargo build --release
 ```
 
+> [!IMPORTANT]
+>
+> Сборка под macOS на workflow происходит слишком долго, из-за загруженности и отсутствия свободнных раннеров.
+> И понимая всё неудобство. Если у вас macOS, то пока что вам самим нужно будет собирать библиотеку по способу выше. 
+
 ## Куда положить готовую библиотеку?
 
 Перед сборкой Java поместите полученный файл в папку ресурсов Java (`src/main/resources/`)
@@ -57,9 +71,9 @@ cargo build --release
 
 - Windows(64-bit): ``win32-x86-64/quark_password_encryptor.dll``
 
-- Linux(64-bit): ``linux-x86-64/quark_password_encryptor.so``
+- Linux(64-bit): ``linux-x86-64/libquark_password_encryptor.so``
 
-- macOS(Intel): ``darwin-x86-64/quark_password_encryptor.dylib``
+- macOS(Intel): ``darwin-x86-64/libquark_password_encryptor.dylib``
 
 ## Сборка и запуск
 
@@ -70,6 +84,12 @@ cd java-core
 mvn clean package
 java -jar target/RayEncoder-*.jar
 ```
+
+## Security notice
+
+This project is intendet for educational purposes.
+
+It has not been audited and should not be used for production-grade security applications.
 
 ### Полезные ссылки:
 
