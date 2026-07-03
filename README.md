@@ -4,10 +4,10 @@
  
 # 🔐 QUARK Ray Encoder
 
-[![RayEncoder](![Static Badge](https://img.shields.io/badge/RayEncoder-Project-orange)
+[![RayEncoder](https://img.shields.io/badge/RayEncoder-Project-orange)
 )]
-[![MIT License](![Static Badge](https://img.shields.io/badge/license-MIT-green)](LICENSE.txt)
-[![Java 21](![Static Badge](https://img.shields.io/badge/Java-21-orange)](https://adoptium.net/temurin/releases?version=21&os=any&arch=any)
+[![MIT License](https://img.shields.io/badge/license-MIT-green)](LICENSE.txt)
+[![Java 21](https://img.shields.io/badge/Java-21-orange)](https://adoptium.net/temurin/releases?version=21&os=any&arch=any)
 
 Менеджер зашифрованных данных с консольным интерфейсом(пока что).
 Проект построен на базе гибридного стека: криптографическое ядро написано на **Rust.**
