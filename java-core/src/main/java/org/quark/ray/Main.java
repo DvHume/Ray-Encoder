@@ -92,7 +92,7 @@ public class Main {
             Ray.INSTANCE.rust_string_free(encPtr);
 
             System.out.println(GREEN + "\n[✔] SUCCESSFULLY!" + RESET);
-            System.out.println("LINE TO SAVE:");
+            System.out.print("LINE TO SAVE: ");
             System.out.println(PURPLE + resultBase64 + RESET + "\n");
         } else {
             System.out.println(RED + "\n[⨯] Kernel side encryption error\n" + RESET);
