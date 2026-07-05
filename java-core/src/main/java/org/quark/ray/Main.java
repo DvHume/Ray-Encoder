@@ -59,7 +59,7 @@ public class Main {
             boolean running = true;
             while (running) {
                 System.out.println(WHITE_BOLD + " [1]" + RESET + " Encrypt data");
-                System.out.println(WHITE_BOLD + " [2]" + RESET + " Decode Base64 into a string");
+                System.out.println(WHITE_BOLD + " [2]" + RESET + " Decrypt data");
                 System.out.println(WHITE_BOLD + " [3]" + RESET + " Exit");
                 System.out.print(CYAN + "\ncrypto-vault@user:~# " + RESET);
 
