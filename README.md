@@ -2,6 +2,7 @@
 > 
 > Этот проект своего рода тренировка.
  
+![Ray](justray.svg)
 # 🔐 QUARK Ray Encoder
 
 ![RayEncoder](https://img.shields.io/badge/RayEncoder-Project-orange)
