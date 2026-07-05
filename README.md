@@ -93,11 +93,11 @@ cargo build --release
 Перед сборкой Java поместите полученный файл в папку ресурсов Java (`src/main/resources/`)
 в соответствующую директорию:
 
-- Windows(64-bit): ``win32-x86-64/quark_password_encryptor.dll``
-
-- Linux(64-bit): ``linux-x86-64/libquark_password_encryptor.so``
-
-- macOS(Intel): ``darwin-x86-64/libquark_password_encryptor.dylib``
+|OS                 | File
+| ----------------- | --------------------------------------------------- |
+| Windows(64-bit):  | ``win32-x86-64/quark_password_encryptor.dll``       |
+| Linux(64-bit):    | ``linux-x86-64/libquark_password_encryptor.so``     |
+| macOS(Intel):     | ``darwin-x86-64/libquark_password_encryptor.dylib`` |
 
 ## Сборка и запуск
 
