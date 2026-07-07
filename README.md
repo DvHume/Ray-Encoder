@@ -1,8 +1,4 @@
-> [!NOTE]
-> 
-> Этот проект своего рода тренировка.
- 
-![Ray](justray.svg)
+ ![Ray](justray.svg)
 # 🔐 QUARK Ray Encoder
 
 ![RayEncoder](https://img.shields.io/badge/RayEncoder-Project-orange)
@@ -13,7 +9,7 @@
 Проект построен на базе гибридного стека: криптографическое ядро написано на **Rust.**
 А пользовательский интерфейс на **Java**
 
-> Ray Encoder шифрует пользовательские данные с помощью аутентифицированного шифрования(AES-GCM).
+> Ray Encoder шифрует пользовательские данные с помощью аутентифицированного шифрования (AES-GCM).
 >
 > Ключ шифрования получается из пароля пользователя с помощью Argon2id,\
 > что делает атаки методом перебора значительно дорогостоящими
@@ -21,13 +17,13 @@
 ---
 ## Как это работает?
 
-### 🔐 Зашифровать пароль
+### 🔐 Зашифровать данные
 
 1. Выберите **Encrypt data**
 2. Введите пароль, который хотите защитить.
 3. Введите **мастер-ключ**
 4. Программа сгенерирует и выведет зашифрованную строку.
-   - Сохраните строку - она понадобится для расшифровки(а так же не забудьте свой мастер-ключ)
+   - Сохраните строку — она понадобится для расшифровки (а также не забудьте свой мастер-ключ)
 
 ### 🔓 Расшифровать данные
 
@@ -37,7 +33,6 @@
 4. Программа восстановит и отобразит исходный пароль
 ---
 
----
 
 ## 🛠 Стек:
 * **Core** Rust (crates: `aes-gcm`, `argon2`, `rand`, `base64`)
@@ -83,9 +78,9 @@ cd rust-core
 cargo build --release
 ```
 
-> [!IMPORTANT]
+> [!NOTE]
 >
-> Сборка под macOS на workflow происходит слишком долго, из-за загруженности и отсутствия свободнных раннеров.
+> Сборка под macOS на workflow происходит слишком долго, из-за загруженности и отсутствия свободных раннеров.
 > И понимая всё неудобство. Если у вас macOS, то пока что вам самим нужно будет собирать библиотеку по способу выше. 
 
 ## Куда положить готовую библиотеку?
@@ -94,10 +89,11 @@ cargo build --release
 в соответствующую директорию:
 
 |OS                 | File
-| ----------------- | --------------------------------------------------- |
-| Windows(64-bit):  | ``win32-x86-64/quark_password_encryptor.dll``       |
-| Linux(64-bit):    | ``linux-x86-64/libquark_password_encryptor.so``     |
-| macOS(Intel):     | ``darwin-x86-64/libquark_password_encryptor.dylib`` |
+| ----------------- | ----------------------------------------------------- |
+| Windows(64-bit)   | ``win32-x86-64/quark_password_encryptor.dll``         |
+| Linux(64-bit)     | ``linux-x86-64/libquark_password_encryptor.so``       |
+| macOS(Intel)      | ``darwin-x86-64/libquark_password_encryptor.dylib``   |
+| macOS(ARM64)      | ``darwin-aarch64/libquark_password_encryptor.dylib``  |
 
 ## Сборка и запуск
 
@@ -119,4 +115,5 @@ It has not been audited and should not be used for production-grade security app
 
 [Java 21](https://adoptium.net/temurin/releases?version=21&os=any&arch=any)\
 [Rust](https://rust-lang.org/learn/get-started/)\
-[What is AES-256?](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
+[What is AES-256?](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)\
+[Argon2](https://docs.rs/argon2/latest/argon2)
