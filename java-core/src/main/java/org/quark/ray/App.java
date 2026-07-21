@@ -15,12 +15,12 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/fxml/scene.fmx")
+                getClass().getResource("/fxml/scene.fxml")
         );
 
         Scene scene = new Scene(loader.load());
 
-        stage.setTitle("Ray Encoder");
+        stage.setTitle(I18n.get("app.title"));
         stage.setScene(scene);
         stage.setMinWidth(800);
         stage.setMinHeight(500);
