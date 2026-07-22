@@ -16,7 +16,8 @@ public class I18n {
     // Supported languages
     private static final List<Locale> SUPP_LOCALES = List.of(
             Locale.ENGLISH,
-            Locale.of("ru")
+            Locale.of("ru"),
+            Locale.of("eo")
     );
     private static ResourceBundle bundle;
     private static Locale currentLocale;

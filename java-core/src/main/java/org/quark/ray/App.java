@@ -5,12 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/*
- * Copyright (c) 2026 DvHume
- *
- * Licensed under the MIT License.
- * See the LICENSE file in the project root for license information
- */
 public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
