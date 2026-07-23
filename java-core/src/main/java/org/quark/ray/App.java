@@ -5,19 +5,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.util.ResourceBundle;
+
 public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/fxml/scene.fxml")
-        );
+        ResourceBundle bundle = ResourceBundle.getBundle("lang.messages");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/scene.fxml"), bundle);
 
         Scene scene = new Scene(loader.load());
 
         stage.setTitle(I18n.get("app.title"));
         stage.setScene(scene);
-        stage.setMinWidth(800);
-        stage.setMinHeight(500);
+        stage.setMinWidth(1000);
+        stage.setMinHeight(700);
         stage.show();
     }
 

@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 public class I18n {
     private static final String BUNDLE_PATH = "lang.messages";
     // Supported languages
-    private static final List<Locale> SUPP_LOCALES = List.of(
+    public static final List<Locale> SUPP_LOCALES = List.of(
             Locale.ENGLISH,
             Locale.of("ru"),
             Locale.of("eo")
