@@ -10,11 +10,16 @@ package org.quark.ray.controller;
 import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
+
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.quark.ray.I18n;
+import org.quark.ray.core.CryptCore;
+import org.quark.ray.core.Result;
 
 public class MainController {
 
@@ -58,6 +63,62 @@ public class MainController {
                 reloadScene();
             }
         });
+
+        cryptButt.setOnAction(event -> handleEncrypt());
+        decryptButt.setOnAction(event -> handleDecrypt());
+    }
+
+    /**
+     * ENCRYPTION
+     */
+    private void handleEncrypt() {
+        String secret = inputSecret.getText();
+        String password = inputMasterPassword.getText();
+        outputField.clear();
+        Task<Result> task = new Task<>() {
+            @Override
+            protected Result call() throws Exception {
+                return CryptCore.encrypt(secret, password);
+            }
+        };
+        task.setOnSucceeded(event -> processResult(task.getValue()));
+        new Thread(task).start();
+    }
+
+    /**
+     * DECRYPTION
+     */
+    private void handleDecrypt() {
+        String b64Data = inputSecret.getText();
+        String password = inputMasterPassword.getText();
+        outputField.clear();
+        Task<Result> task = new Task<>() {
+            @Override
+            protected Result call() throws Exception {
+                return CryptCore.decrypt(b64Data, password);
+            }
+        };
+        task.setOnSucceeded(event -> processResult(task.getValue()));
+        new Thread(task).start();
+    }
+
+    private void processResult(Result result) {
+        if (result.success()) {
+            outputField.setText(result.data());
+            showStatus(result.msg(), true);
+        } else {
+            outputField.clear();
+            showStatus(result.msg(), false);
+        }
+    }
+
+    private void showStatus(String message, boolean isSuccess) {
+        status.setText(message);
+        if (isSuccess) {
+            status.setTextFill(Color.web("#2e7d32"));
+        } else {
+            status.setTextFill(Color.web("#d32f2f"));
+        }
     }
 
     private void reloadScene() {

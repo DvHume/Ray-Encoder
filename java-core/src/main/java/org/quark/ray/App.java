@@ -3,6 +3,7 @@ package org.quark.ray;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.util.ResourceBundle;
@@ -21,6 +22,7 @@ public class App extends Application {
         stage.setMinHeight(700);
         stage.setResizable(false);
         stage.setFullScreen(false);
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/assets/app_icon")));
         stage.show();
     }
 

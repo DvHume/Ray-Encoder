@@ -27,7 +27,7 @@
                <cursor>
                   <Cursor fx:constant="CLOSED_HAND" />
                </cursor></ComboBox>
-            <Label layoutX="333.0" layoutY="153.0" prefHeight="40.0" prefWidth="425.0" text="%ui.label.text">
+            <Label layoutX="333.0" layoutY="153.0" prefHeight="40.0" prefWidth="568.0" text="%ui.label.text">
                <font>
                   <Font size="28.0" />
                </font></Label>
@@ -40,7 +40,10 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <Label fx:id="status" layoutX="385.0" layoutY="408.0" prefHeight="17.0" prefWidth="232.0" />
-      <Button fx:id="decryptButt" layoutX="413.0" layoutY="495.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="176.0" text="%ui.btn.decrypt" />
+      <Button fx:id="decryptButt" layoutX="413.0" layoutY="495.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="176.0" text="%ui.btn.decrypt">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <TextField fx:id="outputField" blendMode="COLOR_DODGE" editable="false" layoutX="217.0" layoutY="256.0" prefHeight="25.0" prefWidth="578.0" />
    </children>
 </AnchorPane>
