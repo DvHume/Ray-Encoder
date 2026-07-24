@@ -3,6 +3,7 @@ package org.quark.ray.core;
 
 /**
  * Contains execution status summary data and a localized msg to the user
+ * @author DvHume
  */
 public record Result(
         Status status,

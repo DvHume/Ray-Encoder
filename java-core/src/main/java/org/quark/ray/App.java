@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.util.ResourceBundle;
 
 public class App extends Application {
@@ -20,6 +19,8 @@ public class App extends Application {
         stage.setScene(scene);
         stage.setMinWidth(1000);
         stage.setMinHeight(700);
+        stage.setResizable(false);
+        stage.setFullScreen(false);
         stage.show();
     }
 

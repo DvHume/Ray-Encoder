@@ -4,13 +4,11 @@ name: Build Rust Native Libraries
 on:
   push:
     branches:
-      - main
-      - master
+      - gui-app-and-user
 
   pull_request:
     branches:
-      - main
-      - master
+      - gui-app-and-user
 
 jobs:
   build:
@@ -27,6 +25,10 @@ jobs:
           - os: windows-latest
             out_dir: windows-x86-64
             lib_pattern: "*.dll"
+
+          - os: macos-latest
+            out_dir: darwin-aarch64
+            lib_pattern: "lib*.dylib"
 
     steps:
       - name: Checkout repository
